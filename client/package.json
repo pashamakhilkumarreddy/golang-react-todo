@@ -1,51 +1,81 @@
 {
   "name": "client",
-  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.4",
-    "bulma": "^0.9.3",
-    "prop-types": "^15.7.2",
-    "ramda": "0.27.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.5",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
-    "redux": "^4.1.1",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "5.3.1",
-    "validator": "13.6.0",
-    "web-vitals": "^1.1.2"
-  },
+  "description": "React Golang Todo",
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "npm run lint-ts && npm run lint-styles && npm run lint-md",
+    "lint-ts": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint-ts:fix": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
+    "lint-styles": "stylelint '**/*.css'",
+    "lint-styles:fix": "stylelint '**/*.css' --fix",
+    "lint-md": "eslint '**/*.md'",
+    "lint-md:fix": "eslint '**/*.md' --fix",
+    "format": "prettier --config ./.prettierrc --no-editorconfig --check .",
+    "format:fix": "prettier --config ./.prettierrc --no-editorconfig --ignore-unknown --write .",
+    "prepare": "husky"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.11",
+    "axios": "^1.7.2",
+    "bulma": "^1.0.1",
+    "i18next": "^23.12.2",
+    "rc-progress": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.25.1",
+    "zustand": "^4.5.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@tanstack/react-query-devtools": "^5.51.14",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsdoc": "^48.8.3",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-spellcheck": "^0.0.20",
+    "husky": "^9.1.2",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "stylelint": "^16.7.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json}": [
+      "prettier --write --no-editorconfig",
+      "eslint --report-unused-disable-directives --fix --max-warnings 0"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "src/**/*.css": [
+      "stylint --fix",
+      "prettier --write --no-editorconfig"
+    ],
+    "src/**/*.md": [
+      "prettier --write --no-editorconfig"
     ]
   }
 }

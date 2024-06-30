@@ -1,70 +1,168 @@
-# Getting Started with Create React App
+# React OpenAPI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React OpenAPI project built with React (Vite + Typescript + SWC), a framework designed for efficient and scalable UI applications. It also employs Docker for containerization, NVM for managing Node.js versions.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+-   Node.js version 20.x.x (LTS)
+-   Docker (Optional)
+-   NVM (optional, for managing Node.js versions)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Docker](#docker)
+-   [Testing](#testing)
+-   [Linting and Formatting](#linting-and-formatting)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Before starting, ensure you have [Node.js](https://nodejs.org/) installed. It's recommended to use [NVM](https://github.com/nvm-sh/nvm) to manage Node.js versions. The project uses the Node.js version specified in `.nvmrc`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository:
 
-### `npm run build`
+    ```bash
+    git clone https://github.com/pashamakhilkumarreddy/react-openapi.git
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    cd react-openapi
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. If using NVM, set the correct Node.js version:
 
-### `npm run eject`
+    ```bash
+    nvm use
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Create a `.env` file in the project root directory and add the required environment variables (use `.env.example` as a reference).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    cp .env.example .env
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Install dependencies:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    ```bash
+    npm install
+    ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To start the application:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   Development Mode:
 
-### Code Splitting
+    ```bash
+    npm run dev
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   Production Mode:
 
-### Analyzing the Bundle Size
+    ```bash
+    npm run build
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Docker
 
-### Making a Progressive Web App
+The project includes Docker Compose files for various environments. Ensure the necessary environment variables are set in the corresponding `.env` files (use `.env.example` as a reference).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Building Docker Images
 
-### Advanced Configuration
+To build and run the Dockerfile you provided, you'll need to follow these steps. The Dockerfile describes a multi-stage build process where the first stage is for building a Node.js application and the second stage is for serving the built application using Nginx. Here’s how you can do it:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Step-by-Step Instructions
 
-### Deployment
+1. **Build the Docker Image**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    Open a terminal, navigate to the directory where your Dockerfile is located, and run the following command to build the Docker image. Replace `react-openapi` with your desired image name if different:
 
-### `npm run build` fails to minify
+    ```bash
+    docker build -t react-openapi .
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    The `-t` flag tags the image with a name (`react-openapi` in this case). The `.` specifies the build context, which is the current directory.
+
+2. **Run the Docker Container**
+
+    Once the image is built, you can run a container from it using the following command:
+
+    ```bash
+    docker run -d -p 80:80 --name react-app react-openapi
+    ```
+
+3. **Access Your Application**
+
+    After running the container, you can access your application in a web browser by navigating to `http://localhost`. If you mapped a different port, adjust the URL accordingly.
+
+4. **Check Logs (Optional)**
+
+    If you need to check the logs to see if everything is running smoothly, you can use:
+
+    ```bash
+    docker logs my-react-app
+    ```
+
+5. **Stop and Remove the Container (Optional)**
+
+    To stop the container, use:
+
+    ```bash
+    docker stop my-react-app
+    ```
+
+    To remove the container, use:
+
+    ```bash
+    docker rm my-react-app
+    ```
+
+## Testing
+
+1. Run Tests:
+
+    ```bash
+    npm test
+    ```
+
+## Linting and Formatting
+
+1. Run ESLint:
+
+    ```bash
+    npm run lint
+    ```
+
+2. Format Code:
+
+    ```bash
+    npm run format:fix
+    ```
+
+### Pre-commit Hook
+
+Pre-commit hooks using Husky and lint-staged enforce linting and formatting. To bypass these hooks temporarily:
+
+```bash
+git commit --no-verify -m "Your commit message"
+```
+
+## Scripts
+
+Key npm scripts include:
+
+-   `npm run build`: Build the application for production.
+-   `npm run format`: Format code using Prettier.
+-   `npm run lint`: Lint code using ESLint.
+-   `npm run start`: Start the application in production mode.
+-   `npm run start:dev`: Start the application in development mode.
+-   `npm run start:debug`: Start the application in debug mode.
+
+Refer to the `package.json` file for more details.
+
+## Contributing
+
+For contributing guidelines, see the [Contributing guide](./CONTRIBUTING.md).

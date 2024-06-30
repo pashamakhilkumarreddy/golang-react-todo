@@ -1,0 +1,17 @@
+{
+  "general.button.cancel": "Cancel",
+  "general.message.online": "Online",
+  "general.message.offline": "Offline",
+  "general.message.location": "Location",
+  "general.home": "Home",
+  "general.home.todos": "Todos",
+  "general.footer.heading": "React Golang Todo",
+  "general.footer.copyright": "2024 React Golang Todo. All rights reserved.",
+  "general.footer.fb": "Facebook",
+  "general.footer.twitter": "Twitter",
+  "general.footer.instagram": "Instagram",
+  "general.todo.add": "Add",
+  "general.todo.add-todo": "Add Todo",
+  "general.todo.todo-list": "Todo List",
+  "general.todo.no-todos": "No Todos"
+}
