@@ -1,6 +1,6 @@
-# React OpenAPI
+# React Golang Todo
 
-This project is a React OpenAPI project built with React (Vite + Typescript + SWC), a framework designed for efficient and scalable UI applications. It also employs Docker for containerization, NVM for managing Node.js versions.
+This project is a React Golang Todo project built with React (Vite + Typescript + SWC), a framework designed for efficient and scalable UI applications. It also employs Docker for containerization, NVM for managing Node.js versions.
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ Before starting, ensure you have [Node.js](https://nodejs.org/) installed. It's 
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/pashamakhilkumarreddy/react-openapi.git
+    git clone https://github.com/pashamakhilkumarreddy/golang-react-todo.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd react-openapi
+    cd golang-react-todo
     ```
 
 3. If using NVM, set the correct Node.js version:
@@ -78,20 +78,20 @@ To build and run the Dockerfile you provided, you'll need to follow these steps.
 
 1. **Build the Docker Image**
 
-    Open a terminal, navigate to the directory where your Dockerfile is located, and run the following command to build the Docker image. Replace `react-openapi` with your desired image name if different:
+    Open a terminal, navigate to the directory where your Dockerfile is located, and run the following command to build the Docker image. Replace `golang-react-todo` with your desired image name if different:
 
     ```bash
-    docker build -t react-openapi .
+    docker build -t golang-react-todo .
     ```
 
-    The `-t` flag tags the image with a name (`react-openapi` in this case). The `.` specifies the build context, which is the current directory.
+    The `-t` flag tags the image with a name (`golang-react-todo` in this case). The `.` specifies the build context, which is the current directory.
 
 2. **Run the Docker Container**
 
     Once the image is built, you can run a container from it using the following command:
 
     ```bash
-    docker run -d -p 80:80 --name react-app react-openapi
+    docker run -d -p 80:80 --name react-app golang-react-todo
     ```
 
 3. **Access Your Application**
