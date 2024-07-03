@@ -1,0 +1,42 @@
+# Build output
+/bin/
+/build/
+/dist/
+*.exe
+*.out
+*.test
+
+# Dependency directories
+/vendor/
+
+# Go-specific files
+*.go[0-9]
+*.exe
+*.test
+*.prof
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.sln
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Coverage reports
+/coverage/
+
+# Go mod and sum files
+go.sum
+
+tmp/

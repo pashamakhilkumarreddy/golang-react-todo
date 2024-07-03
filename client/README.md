@@ -1,4 +1,4 @@
-# React Golang Todo
+# React Golang Todo - Client
 
 This project is a React Golang Todo project built with React (Vite + Typescript + SWC), a framework designed for efficient and scalable UI applications. It also employs Docker for containerization, NVM for managing Node.js versions.
 
