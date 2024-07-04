@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/pashamakhilkumarreddy/golang-react-todo/server/src/models"
+	"github.com/pashamakhilkumarreddy/golang-react-todo/server/database/models"
 )
 
 var (

@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	handlers "github.com/pashamakhilkumarreddy/golang-react-todo/server/src/handlers"
+	handlers "github.com/pashamakhilkumarreddy/golang-react-todo/server/api/handlers"
 )
 
 const apiV1Prefix = "/api/v1"
